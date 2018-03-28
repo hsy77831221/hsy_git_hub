@@ -9,6 +9,7 @@ uint8_t CmdLen = 0;
 bool CmdFlag = false;
 
 hsy_shell_syscall shell_syscall[CMD_MAX] = {
+	{"list"},
 	{"help", help_main}
 	};
 
@@ -55,7 +56,6 @@ uint8_t CmdDec(uint8_t *src, uint8_t des[CMD_LEN_MAX][PARM_MAX])
 
 void CmdMain(void) 
 {
-	struct hsy_shell_syscall syscall;
 	uint8_t i;
 	uint8_t DecBuff[CMD_LEN_MAX][PARM_MAX];
 	uint8_t DecLen = 0;
@@ -70,6 +70,15 @@ void CmdMain(void)
 	
 	for(i = 0; i < DecLen; i++)
 		DB_PRINT("i[%d]:%s\r\n", i, DecBuff[i]);
+	
+	for(i = 0; i < CMD_MAX; i++)
+		if(strcmp((char *)DecBuff[0], shell_syscall[i].name) == 0)
+			break;
+		
+	if((shell_syscall[i].syscall != NULL) && (i < CMD_MAX))
+		shell_syscall[i].syscall(DecLen, DecBuff);;
+	
+	DB_PRINT("i : %d\r\n", i);
 	
 //	uint8_t buf[]
 	
