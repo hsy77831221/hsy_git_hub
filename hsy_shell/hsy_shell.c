@@ -9,9 +9,13 @@ uint8_t CmdLen = 0;
 bool CmdFlag = false;
 
 hsy_shell_syscall shell_syscall[CMD_MAX] = {
-	{help, &help_main}
+	{"help", help_main}
 	};
-//int argc,char *argv[]
+
+void help_main(int argc,char *argv[])
+{
+	
+}
 
 uint8_t CmdDec(uint8_t *src, uint8_t des[CMD_LEN_MAX][PARM_MAX])
 {

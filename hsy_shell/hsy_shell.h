@@ -17,13 +17,13 @@
 
 #define CMD_LEN_MAX			64
 #define	PARM_MAX				10
-#define CMD_MAX				32
+#define CMD_MAX					32
 
-struct hsy_shell_syscall
+typedef struct
 {
-	const char* name;		/* the name of system call */
-	const char* desc;		/* description of system call */
-};
+	const char* name;					/* the name of system call */
+	void (*syscall)(); 	/* system call */
+}hsy_shell_syscall;
 
 typedef enum
 {
@@ -35,5 +35,6 @@ extern UART_HandleTypeDef huart1;
 
 void HsyShellStart(void);
 void HsyShellScheduler(void);
+void help_main(int argc,char *argv[]);
 
 #endif /* __LED_H */
