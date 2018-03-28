@@ -6,6 +6,7 @@
 #include "main.h"
 #include "string.h"
 #include "stdlib.h "
+#include "help_main.h"
 
 #define _DEBUG_		1
 
