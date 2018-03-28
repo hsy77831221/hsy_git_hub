@@ -38,9 +38,6 @@ uint8_t CmdDec(uint8_t *src, uint8_t des[CMD_LEN_MAX][PARM_MAX])
 		if(buf_after[0] == '\0')
 			return j + 1;
 	
-//		for(i = 0; i < (strlen((char *)buf_tmp)-strlen((char *)buf_after)); i++)
-//			buf_befor[i] = buf_tmp[i];
-
 		i = (strlen((char *)buf_tmp)-strlen((char *)buf_after));
 		memcpy(buf_befor, buf_tmp, i);
 		buf_befor[i] = '\0';
