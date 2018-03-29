@@ -10,7 +10,8 @@ bool CmdFlag = false;
 
 hsy_shell_syscall shell_syscall[CMD_MAX] = {
 	{"list", list_main},
-	{"help", help_main}
+	{"help", help_main},
+	{"set_time", set_time_main}
 	};
 
 uint8_t CmdDec(uint8_t *src, uint8_t des[CMD_LEN_MAX][PARM_MAX])

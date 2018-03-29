@@ -8,8 +8,9 @@
 #include "stdlib.h "
 #include "help_main.h"
 #include "list_main.h"
+#include "set_time_main.h"
 
-#define _DEBUG_		1
+#define _DEBUG_		0
 
 #if _DEBUG_
 #define DB_PRINT(...) printf(__VA_ARGS__)
