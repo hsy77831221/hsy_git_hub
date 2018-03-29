@@ -7,6 +7,7 @@
 #include "string.h"
 #include "stdlib.h "
 #include "help_main.h"
+#include "list_main.h"
 
 #define _DEBUG_		1
 
@@ -36,6 +37,5 @@ extern UART_HandleTypeDef huart1;
 
 void HsyShellStart(void);
 void HsyShellScheduler(void);
-void help_main(int argc,char *argv[]);
 
 #endif /* __LED_H */
