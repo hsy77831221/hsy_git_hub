@@ -30,7 +30,6 @@ void set_time_main(int argc, char *argv[])
 	unsigned int hour, min, sec;
 	while ((ch = getopt(argc, argv, "r:s:")) != -1)
 	{
-		printf("optind: %d \r\n", optind);
 		switch(ch)
 			{
 			case 's':
@@ -41,7 +40,7 @@ void set_time_main(int argc, char *argv[])
 				sscanf(argv[optind + 1], "%d", &sec);
 				set_time = (hour * 3600) + (min * 60) + sec;
 				
-				printf("Set fetch time : %s:%s:%s\r\n\r\n", optarg, argv[optind], argv[optind + 1]);
+				printf("\r\nSet fetch time : %s:%s:%s\r\n\r\n", optarg, argv[optind], argv[optind + 1]);
 				printf("fetch time second : %d\r\n\r\n", set_time);
 				break;
 			case 'r':
@@ -51,7 +50,7 @@ void set_time_main(int argc, char *argv[])
 				sscanf(argv[optind], "%d", &min);
 				sscanf(argv[optind + 1], "%d", &sec);
 				real_time = (hour * 3600) + (min * 60) + sec;
-				printf("Set real time : %s:%s:%s\r\n\r\n", optarg, argv[optind], argv[optind + 1]);
+				printf("\r\nSet real time : %s:%s:%s\r\n\r\n", optarg, argv[optind], argv[optind + 1]);
 				printf("real time second : %d\r\n\r\n", real_time);
 				break;
 			case '?':
