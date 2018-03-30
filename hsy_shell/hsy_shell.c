@@ -62,6 +62,8 @@ void CmdMain(void)
 	uint8_t DecLen = 0;
 	char *Buff_p[PARM_MAX];
 	
+//	DB_PRINT("%s begin\r\n", __func__);
+	
 	memset(DecBuff, 0, sizeof(DecBuff));
 	
 	DecLen = CmdDec(CmdBuffer, DecBuff);
@@ -75,6 +77,8 @@ void CmdMain(void)
 		
 	if((shell_syscall[i].syscall != NULL) && (i < CMD_MAX))
 		shell_syscall[i].syscall(DecLen, Buff_p);
+	
+	printf("\r\n");
 	
 	CmdFlag = false;
 }
@@ -108,12 +112,10 @@ bool CmdNewLine(uint8_t pData)
 
 void UartPro(uint8_t pData)
 {
-//	DB_PRINT("%s begin\r\n", __func__);
 	if(CmdNewLine(pData))
 		CmdExcute();
 	else
 		CmdPush(pData);
-//	DB_PRINT("%s end\r\n", __func__);
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
